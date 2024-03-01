@@ -22,6 +22,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+app.use('/landing_page', (req, res, next) => {
+  res.render('landing_page', {
+    title: 'Landing Page'
+  })
+})
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
