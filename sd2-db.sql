@@ -64,3 +64,24 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+
+
+-- SELECT s.name as student, ps.name as programme, ps.id as pcode 
+-- FROM Students s 
+-- JOIN Student_Programme sp ON sp.id = s.id
+-- JOIN Programmes ps ON ps.id = sp.id
+-- WHERE s.id = 1;
+
+-- SELECT s.name as Student, p.name as Programme, p.id as Pcode
+-- FROM Students s
+-- , Programmes p 
+-- WHERE s.id = 1 
+-- AND p.id = '09UU0002';
+
+-- SELECT * 
+-- FROM Programme_Modules pm, Modules m
+-- WHERE pm.module = m.code
+-- AND pm.programme = '09UU0003';
