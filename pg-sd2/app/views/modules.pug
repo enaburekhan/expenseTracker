@@ -1,0 +1,8 @@
+extends layout
+
+block content 
+	h1= title
+
+	for result in results
+		p #{result['code']} #{result['name']}
+

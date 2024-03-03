@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Create a route for root - /
 app.get("/", function(req, res) {
-    res.send("Hello world!");
+    res.render('index')
 });
 
 // Create a route for testing the db
@@ -30,7 +30,7 @@ app.get("/db_test", function(req, res) {
     // Assumes a table called test_table exists in your database
     sql = 'select * from test_table';
     db.query(sql).then(results => {
-        console.log(results);
+        //console.log(results);
         res.send(results)
     });
 });
@@ -46,6 +46,20 @@ app.get("/landing_page", function(req, res) {
         title: 'Landing Page',
     });
 });
+
+app.get('/modules', (req, res, next)=>{
+    sql = 'select * from modules';
+    db.query(sql).then(results => {
+        console.log(results);
+
+        res.render('modules', {
+            title: 'Modules',
+            results: results,
+        })
+    });
+    
+    
+})
 
 // Create a dynamic route for /hello/<name>, where name is any value provided by user
 // At the end of the URL
