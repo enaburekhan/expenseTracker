@@ -1,0 +1,15 @@
+extends layout
+
+block content 
+	h1= title
+
+	p #[Strong Turtle]
+	
+	for turtle in data
+		p #[Strong #{turtle['id']}] #{turtle['name']} (#{turtle['color']} one) #{turtle['weapon']}
+		a(href=`turtles/${turtle['id']}`) More
+
+		a(href=`turtles/detail/${turtle['id']}/delete` style='color: red;') Remove
+		br
+	
+	a(href='/turtles/create') create a turtle

@@ -1,0 +1,24 @@
+extends layout
+
+block content
+	h1= title
+
+	form(method='POST')
+		div
+			label(for='callname') Name:
+			input(type='text' id='callname' name='callname' minlength='1' required placeholder='enter a name')
+		
+		div
+			label(for='DOB') Date of Birth
+			input(type='date' id='DOB' name='DOB' required placeholder='dd/mm/yyyy')
+		
+
+		div
+			label(for='color') Color
+			input(type='text' id='color' name='color' minlength='1' required placeholder='pick a color')
+		
+		div
+			label(for='weapon') Weapon
+			input(type='text' id='weapon' name='weapon' minlength='1' required placeholder='enter a weapon')
+		
+		button(type='submit') Submit

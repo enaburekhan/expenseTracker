@@ -1,11 +1,15 @@
-// setting path
 const path = require('path')
-
-// Import express.js
 const express = require("express");
+const db = require('./services/db');
+
+const turtleRouter = require('./routes/turtleRouter')
+const uniRouter = require('./routes/uniRouter')
 
 // Create express app
 var app = express();
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 
 // Add static files location
 app.use(express.static("static"));
@@ -14,32 +18,20 @@ app.use(express.static("static"));
 app.set('view engine', 'pug');
 app.set('views', './app/views');
 
-// Get the functions in the db.js file to use
-const db = require('./services/db');
-
 // public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Create a route for root - /
 app.get("/", function(req, res) {
-    res.render('index')
+    res.render('index', {
+        title: 'Index Page'
+    })
 });
 
-// Create a route for testing the db
-app.get("/db_test", function(req, res) {
-    // Assumes a table called test_table exists in your database
-    sql = 'select * from test_table';
-    db.query(sql).then(results => {
-        //console.log(results);
-        res.send(results)
-    });
-});
 
-// Create a route for /goodbye
-// Responds to a 'GET' request
-app.get("/goodbye", function(req, res) {
-    res.send("Goodbye world!");
-});
+app.use('/turtles', turtleRouter)
+app.use('/uni', uniRouter)
+
 
 app.get("/landing_page", function(req, res) {
     res.render('landing_page', {
@@ -47,30 +39,6 @@ app.get("/landing_page", function(req, res) {
     });
 });
 
-app.get('/modules', (req, res, next)=>{
-    sql = 'select * from modules';
-    db.query(sql).then(results => {
-        console.log(results);
-
-        res.render('modules', {
-            title: 'Modules',
-            results: results,
-        })
-    });
-    
-    
-})
-
-// Create a dynamic route for /hello/<name>, where name is any value provided by user
-// At the end of the URL
-// Responds to a 'GET' request
-app.get("/hello/:name", function(req, res) {
-    // req.params contains any parameters in the request
-    // We can examine it in the console for debugging purposes
-    console.log(req.params);
-    //  Retrieve the 'name' parameter and use it in a dynamically generated page
-    res.send("Hello " + req.params.name);
-});
 
 // Start server on port 3000
 app.listen(3000,function(){
