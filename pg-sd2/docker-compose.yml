@@ -5,7 +5,7 @@ services:
       context: ./
     volumes:
       - .:/src
-    command: npm run dev
+    command: supervisor -e '.' index.js
     ports:
       - "3000:3000"
     depends_on:
