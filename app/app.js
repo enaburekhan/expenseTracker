@@ -7,19 +7,29 @@ var app = express();
 // Add static files location
 app.use(express.static('static'));
 
+// Use the Pug templating engine
+app.set('view engine', 'pug');
+app.set('views', './app/views');
+
 // Get the functions in the db.js file to use
 const db = require('./services/db');
 console.log('db', db);
 
 // Create a route for root - /
 app.get('/', function (req, res) {
-  res.send('Hello world again!');
+  const test_data = ['one', 'two', 'three', 'four'];
+  // Send the array through to the template as a variable called data
+  res.render('index', {
+    title: 'My index page',
+    heading: 'My headingooo',
+    data: test_data,
+  });
 });
 
 app.get('/all-students', function (req, res) {
   const sql = 'select * from Students';
   db.query(sql).then((results) => {
-    res.json(results);
+    res.render('all-students', { data: results });
   });
 });
 
@@ -27,23 +37,10 @@ app.get('/all-students', function (req, res) {
 app.get('/all-students-formatted', function (req, res) {
   const sql = 'select * from Students';
 
-  let output = '<table border=ipx>';
   db.query(sql).then((results) => {
-    for (let row of results) {
-      output += '<tr>';
-      output += '<td>' + row.id + '</td>';
-      output +=
-        '<td>' +
-        '<a href="./single-student/' +
-        row.id +
-        '">' +
-        row.name +
-        '</a>' +
-        '</td>';
-      output += '</tr>';
-    }
-    output += '</table>';
-    res.send(output);
+    // Send the results rows to the all-students template
+    // The rows will be in a variable called data
+    res.render('all-students', { data: results });
   });
 });
 
@@ -67,12 +64,12 @@ app.get('/all-students-formatted/single-student/:id', function (req, res) {
     let output = '';
     output += 'Student: ' + results[0].Student;
     output += ' Programme: ' + results[0].Programme;
-    res.send(output);
+    res.render(output);
 
-    db.query(modSql, [pCode]).then((results) => {
-      console.log(results);
-      res.send(pCode);
-    });
+    // db.query(modSql, [pCode]).then((results) => {
+    //   console.log(results);
+    //   res.send(pCode);
+    // });
   });
 });
 

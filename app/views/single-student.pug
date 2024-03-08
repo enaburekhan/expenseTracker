@@ -1,0 +1,13 @@
+extends layout 
+
+block content 
+  - console.log(data)
+  .main-content 
+    h1 Student Detail 
+    table(border=1)
+      tr
+        th ID 
+        th Name 
+      tr
+        td #{data.id}
+        td #{data.name}   
