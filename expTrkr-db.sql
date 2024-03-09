@@ -17,9 +17,9 @@ CREATE TABLE Category (
   CategoryName VARCHAR(50)
 );
 
--- Create Expense table
-CREATE TABLE Expense (
-  ExpenseID VARCHAR(50) PRIMARY KEY,
+-- Create Transaction table
+CREATE TABLE Transaction (
+  TransactionID VARCHAR(50) PRIMARY KEY,
   Type ENUM('income', 'expense'),
   Amount DECIMAL(10, 2),
   Date DATE,
@@ -44,8 +44,8 @@ VALUES
   ('3', 'Rent'),
   ('4', 'Salary');
 
--- Insert sample data into Expense table
-INSERT INTO Expense (ExpenseID, Type, Amount, Date, CategoryID, Description, UserID)
+-- Insert sample data into Transaction table
+INSERT INTO Transaction (TransactionID, Type, Amount, Date, CategoryID, Description, UserID)
 VALUES
   ('1', 'expense', 25.50, '2024-02-20', 1, 'Lunch at a restaurant', '1'),
   ('2', 'expense', 50.00, '2024-02-22', 2, 'Bus fare', '1'),
