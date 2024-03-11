@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+
+  if categories
+    ul
+      each category in categories
+        li
+          | CategoryID: #{category.CategoryID}, CategoryName: #{category.CategoryName}
+  else
+    p There are no categories
