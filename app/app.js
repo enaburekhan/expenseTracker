@@ -20,6 +20,12 @@ app.get('/', (req, res) => {
   res.send('Hello world!');
 });
 
+app.get('/layout', (req, res)=>{
+  res.render('dummy', {
+    title: 'Dummy Page'
+  })
+})
+
 app.use((req, res, next) => {
   next(createError(404));
 });
@@ -34,4 +40,5 @@ app.use((err, req, res, next) => {
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+  console.log(`http://localhost:${port}`)
 });
