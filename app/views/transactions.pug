@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+
+  if transactions
+    ul
+      each transaction in transactions
+        li
+          | TransactionID: #{transaction.TransactionID}, Type: #{transaction.Type}, Amount: #{transaction.Amount},
+          | Date: #{transaction.Date ? transaction.Date.toISOString().split('T')[0] : 'N/A'}
+          | Description: #{transaction.Description}
+         
+  else
+    p There are no users
