@@ -13,7 +13,15 @@ html
     div.header
       a(href='/')
         img(src="./images/logo1.png" alt="expense tracker logo" id='logo')
-      img(src="./images/profile.svg" id='profile')
+      
+      div.dd-container
+        img(src="./images/profile.svg" id='profile')
+        div.drop-down
+          a(href='/landing_page') landing
+          a(href='/users') users
+          a(href='/log_in') switch user
+          a(href='/log_out') log out
+
     
     div.nav
       a(href='/home')

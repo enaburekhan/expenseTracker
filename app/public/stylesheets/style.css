@@ -1,7 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
+/*
+
+If you are in charge of the home page, category page or the 
+transaction page; please change the border-bottom color to 
+be light purple and font-weight to be bold. 
+
+It was spicified in the wireframes. 
+
+e.g. 
+
+.nav > a > .category {
+	border-bottom: 4px solid #572AA9;
+}
+
+.nav > a > .category > p {
+	color: #462287;
+	font-weight: bold;
+}
+
+*/
+
 body {
-	padding: 5vh 10vw;
+	padding: 5vh 15vw;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 	font-family: 'Inter', sans-serif, Arial, Helvetica;
 	
@@ -22,8 +43,37 @@ a {
 
 #logo, #profile {
 	height: 6vh;
-	margin-bottom: 6vh;
 }
+
+#logo, .dd-container {
+	margin-bottom: 5vh;
+}
+
+
+/*********************************/
+
+.drop-down {
+	display: none;
+	position: absolute;
+	flex-direction: column;
+	background-color: lightgray;
+}
+
+.drop-down > a {
+	background-color: white;
+	padding: 1vw;
+	color: black;
+}
+
+.drop-down > a:hover {
+	background-color: lightgray;
+	color: purple;
+}
+
+.dd-container:hover > .drop-down {
+	display: flex;
+}
+
 
 /*********************************/
 .nav {
@@ -41,6 +91,7 @@ a {
 
 .nav > a > div > p {
 	color: #6B6B88;
+	
 }
 
 .nav > a > div > div {
@@ -50,3 +101,17 @@ a {
 	border-radius: 50%;
 	margin: 0 1vw;
 }
+
+
+/*
+
+.nav > a > .category {
+	border-bottom: 4px solid #572AA9;
+}
+
+.nav > a > .category > p {
+	color: #462287;
+	font-weight: bold;
+}
+
+*/
