@@ -23,11 +23,13 @@ e.g.
 
 body {
   padding: 40px 192px 40px 192px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  font-family: "Inter", sans-serif, Arial, Helvetica;
+  font: 16px;
+  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+  font-family: "Inter", sans-serif;
 
   /* background-color: #D5D0DD; */
   background-color: #f6f6f6;
+  max-width: 1200px;
 }
 
 /* a {
@@ -116,13 +118,15 @@ body {
 .home-nav {
   text-decoration: none;
   outline: none;
+  display: flex;
 }
 
 .home-nav-text-container {
   display: flex;
   justify-content: center;
-  width: 120px;
+  width: 130px;
   border-bottom: 2px solid #ddd4ee;
+  column-gap: 8px;
 }
 
 .home-nav-text {
@@ -135,13 +139,15 @@ body {
 .categories-nav {
   text-decoration: none;
   outline: none;
+  display: flex;
 }
 
 .category-nav-text-container {
   display: flex;
   justify-content: center;
-  width: 120px;
+  width: 130px;
   border-bottom: 2px solid #ddd4ee;
+  column-gap: 8px;
 }
 
 .category-nav-text {
@@ -154,13 +160,15 @@ body {
 .transactions-nav {
   text-decoration: none;
   outline: none;
+  display: flex;
 }
 
 .transaction-nav-text-container {
   display: flex;
   justify-content: center;
-  width: 120px;
+  width: 130px;
   border-bottom: 2px solid #ddd4ee;
+  column-gap: 8px;
 }
 
 .transaction-nav-text {
@@ -170,6 +178,9 @@ body {
   font-size: 18px;
 }
 
+.nav-icon {
+  width: 16px;
+}
 /* .nav > a > div {
   display: flex;
   align-items: center;
