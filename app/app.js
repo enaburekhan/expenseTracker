@@ -20,12 +20,6 @@ app.get('/', (req, res) => {
   res.send('Hello world!');
 });
 
-app.get('/layout', (req, res)=>{
-  res.render('dummy', {
-    title: 'Dummy Page'
-  })
-})
-
 app.use((req, res, next) => {
   next(createError(404));
 });
