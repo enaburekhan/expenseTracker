@@ -10,31 +10,34 @@ html
     
     
   body
-    div.header-and-username
-      div.header
-        a(href='/')
-          img(src="./images/logo1.png" alt="expense tracker logo" id='logo')
+    div.header
+      a(href='/')
+        img(src="./images/logo1.png" alt="expense tracker logo" id='logo')
+      
+      div.dd-container
         img(src="./images/profile.svg" id='profile')
-      p.username Hello Username😊
+        div.drop-down
+          a(href='/landing_page') landing
+          a(href='/users') users
+          a(href='/log_in') switch user
+          a(href='/log_out') log out
 
-
-    
     
     div.nav
-      a(href='/home' class="home-nav")
-        div.home-nav-text-container
-          div
-          p.home-nav-text Home
+      a(href='/home' class='nav-home')
+        div.home
+          img(src='./images/home.svg')
+          p Home
       
-      a(href='/categories' class="categories-nav")
-        div.category-nav-text-container
-          div
-          p.category-nav-text Category
+      a(href='/categories' class='nav-category')
+        div.category
+          img(src='./images/categories.svg')
+          p Category
 
-      a(href='/transactions' class="transactions-nav")
-        div.transaction-nav-text-container
-          div
-          p.transaction-nav-text Transaction
+      a(href='/transactions' class='nav-transaction')
+        div.transactions
+          img(src='./images/transaction.svg')
+          p Transaction
 
-    
-    block content
+    div.content
+      block content
