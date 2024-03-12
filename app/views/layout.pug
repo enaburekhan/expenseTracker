@@ -24,20 +24,20 @@ html
 
     
     div.nav
-      a(href='/home')
+      a(href='/home' class='nav-home')
         div.home
-          div
+          img(src='./images/home.svg')
           p Home
       
-      a(href='/categories')
+      a(href='/categories' class='nav-category')
         div.category
-          div
+          img(src='./images/categories.svg')
           p Category
 
-      a(href='/transactions')
+      a(href='/transactions' class='nav-transaction')
         div.transactions
-          div
+          img(src='./images/transaction.svg')
           p Transaction
 
-    
-    block content
+    div.content
+      block content
