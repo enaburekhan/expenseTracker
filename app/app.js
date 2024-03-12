@@ -1,23 +1,23 @@
-const express = require('express');
-const path = require('path');
-const createError = require('http-errors');
-const userController = require('./controllers/userController');
-const categoryController = require('./controllers/categoryController');
-const transactionController = require('./controllers/transactionController');
+const express = require("express");
+const path = require("path");
+const createError = require("http-errors");
+const userController = require("./controllers/userController");
+const categoryController = require("./controllers/categoryController");
+const transactionController = require("./controllers/transactionController");
 
 const app = express();
 
-app.use(express.static('static'));
-app.set('view engine', 'pug');
-app.set('views', './app/views');
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static("static"));
+app.set("view engine", "pug");
+app.set("views", "./app/views");
+app.use(express.static(path.join(__dirname, "public")));
 
-app.use('/users', userController);
-app.use('/categories', categoryController);
-app.use('/transactions', transactionController);
+app.use("/users", userController);
+app.use("/categories", categoryController);
+app.use("/transactions", transactionController);
 
-app.get('/', (req, res) => {
-  res.send('Hello world!');
+app.get("/", (req, res) => {
+  res.send("Hello worldddd!");
 });
 
 app.use((req, res, next) => {
@@ -26,9 +26,9 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => {
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.error = req.app.get("env") === "development" ? err : {};
   res.status(err.status || 500);
-  res.render('error');
+  res.render("error");
 });
 
 const port = process.env.PORT || 3000;
