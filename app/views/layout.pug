@@ -2,8 +2,34 @@ doctype html
 html
   head
     title= title
-    //- link(rel='stylesheet', href='/stylesheets/style.css')
-    //- block style
+    meta(chartset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="shortcut icon", href="./images/favicon.png", type="image/x-icon")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    block style
+    
     
   body
+    div.header
+      a(href='/')
+        img(src="./images/logo1.png" alt="expense tracker logo" id='logo')
+      img(src="./images/profile.svg" id='profile')
+    
+    div.nav
+      a(href='/home')
+        div.home
+          div
+          p Home
+      
+      a(href='/categories')
+        div.category
+          div
+          p Category
+
+      a(href='/transactions')
+        div.transactions
+          div
+          p Transaction
+
+    
     block content
