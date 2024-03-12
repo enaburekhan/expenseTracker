@@ -1,7 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+:root {
+  --D1-large-display-font-size: 3rem;
+  --D1-large-display-line-height: 4.5rem;
+  --D1-large-display-weight: 900;
+
+  --D2-medium-display-font-size: 2.25rem;
+  --D2-medium-display-line-height: 3.38rem;
+  --D2-medium-display-weight: 700;
+
+  --D3-Small-display-font-size: 1.5rem;
+  --D3-Small-display-line-height: 2.25rem;
+  --D3-Small-display-weight: 700;
+
+  --T1-large-title-font-size: 1.5rem;
+  --T1-large-title-line-height: 2.25rem;
+  --T1-large-title-weight: 700;
+
+  --T2-medium-title-font-size: 1rem;
+  --T2-medium-title-line-height: 1.5rem;
+  --T2-medium-title-weight: 700;
+
+  --T3-small-title-font-size: 1rem;
+  --T3-small-title-line-height: 1.5rem;
+  --T3-small-title-weight: 400;
+
+  --B1-large-body-font-size: 1.5rem;
+  --B1-large-body-line-height: 2.25rem;
+  --B1-large-body-weight: 400;
+
+  --B2-medium-body-font-size: 1.125rem;
+  --B2-medium-body-line-height: 1.69rem;
+  --B2-medium-body-weight: 400;
+
+  --B3-small-body-font-size: 1rem;
+  --B3-small-body-line-height: 1.5rem;
+  --B3-small-body-weight: 400;
+
+  --B4-little-body-font-size: 0.88rem;
+  --B4-little-body-line-height: 1.31rem;
+  --B4-little-body-weight: 400;
+
+  --Neutral100-background-color: #f6f6f6;
+  --Neutral200-secondary-color: #6b5b88;
+  --Neutral300-border-color: #ddd4ee;
+  --Neutral400-text-main: #2c1555;
+  --Primary-color: #572aa9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  color: var(--Neutral400-text-main);
+  font-size: 16px;
+}
+
 body {
-	margin: 0;
-	padding: 0;
-	font-family: Arial, Helvetica, sans-serif;
-	color: white;
-	background-color: black;
+  background-color: var(--Neutral100-background-color);
+}
+
+.hero {
+  /* background-image: url(hero-expenseTracker.png); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  padding: 2rem 4rem 8rem 4rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logo-header {
+  width: 8rem;
 }

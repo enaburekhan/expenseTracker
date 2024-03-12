@@ -16,7 +16,7 @@ app.use("/users", userController);
 app.use("/categories", categoryController);
 app.use("/transactions", transactionController);
 
-app.get("/", (req, res) => {
+app.get("/landing_page", (req, res) => {
   res.render("landing_page");
 });
 
