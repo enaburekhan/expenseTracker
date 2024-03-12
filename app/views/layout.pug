@@ -10,26 +10,31 @@ html
     
     
   body
-    div.header
-      a(href='/')
-        img(src="./images/logo1.png" alt="expense tracker logo" id='logo')
-      img(src="./images/profile.svg" id='profile')
+    div.header-and-username
+      div.header
+        a(href='/')
+          img(src="./images/logo1.png" alt="expense tracker logo" id='logo')
+        img(src="./images/profile.svg" id='profile')
+      p.username Hello Username😊
+
+
+    
     
     div.nav
-      a(href='/home')
-        div.home
+      a(href='/home' class="home-nav")
+        div.home-nav-text-container
           div
-          p Home
+          p.home-nav-text Home
       
-      a(href='/categories')
-        div.category
+      a(href='/categories' class="categories-nav")
+        div.category-nav-text-container
           div
-          p Category
+          p.category-nav-text Category
 
-      a(href='/transactions')
-        div.transactions
+      a(href='/transactions' class="transactions-nav")
+        div.transaction-nav-text-container
           div
-          p Transaction
+          p.transaction-nav-text Transaction
 
     
     block content
