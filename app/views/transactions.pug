@@ -1,15 +1,35 @@
 extends layout
 
+block style 
+  link(rel="stylesheet" href="./stylesheets/transaction_list.css")
+
 block content
   h1= title
 
   if transactions
-    ul
+    div.purple
+        p Sort
+        p Filter
+
+    ul(class='t_container')
       each transaction in transactions
         li
-          | TransactionID: #{transaction.TransactionID}, Type: #{transaction.Type}, Amount: #{transaction.Amount},
-          | Date: #{transaction.Date ? transaction.Date.toISOString().split('T')[0] : 'N/A'}
-          | Description: #{transaction.Description}
+          div.leftie
+            div.void
+            div
+              p.description #{transaction.Description}
+              p.date #{transaction.Date?transaction.Date.toISOString().split('T')[0]:''}
+
+  
+          //p
+            | TransactionID: #{transaction.TransactionID}, Type: #{transaction.Type}, Amount: #{transaction.Amount},
+            | Date: #{transaction.Date ? transaction.Date.toISOString().split('T')[0] : 'N/A'}
+            | Description: #{transaction.Description}
+
+          div.rightie
+            p.amount #{transaction.Type=='expense'?'-':'+'} $#{transaction.Amount}
+            p.dots ⋯
+
          
   else
     p There are no users
