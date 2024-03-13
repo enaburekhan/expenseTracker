@@ -16,8 +16,8 @@ app.use("/users", userController);
 app.use("/categories", categoryController);
 app.use("/transactions", transactionController);
 
-app.get("/", (req, res) => {
-  res.send("Hello worldddd!");
+app.get("/landing_page", (req, res) => {
+  res.render("landing_page");
 });
 
 app.use((req, res, next) => {
@@ -34,5 +34,5 @@ app.use((err, req, res, next) => {
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
-  console.log(`http://localhost:${port}`)
+  console.log(`http://localhost:${port}`);
 });
