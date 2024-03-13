@@ -4,6 +4,7 @@ const createError = require('http-errors');
 const userController = require('./controllers/userController');
 const categoryController = require('./controllers/categoryController');
 const transactionController = require('./controllers/transactionController');
+const { getCategories } = require('./models/categoryModel');
 
 const app = express();
 
@@ -18,6 +19,22 @@ app.use('/transactions', transactionController);
 
 app.get('/', (req, res) => {
   res.send('Hello world!');
+});
+app.get('/RecordExpenses', async (req, res, next) => {
+  try {
+    const categories = await getCategories();
+    res.render('expenses', { categories });
+  } catch (error) {
+    next(error);
+  }
+});
+app.get('/EditExpenses', async (req, res, next) => {
+  try {
+    const categories = await getCategories();
+    res.render('editExpense', { categories });
+  } catch (error) {
+    next(error);
+  }
 });
 
 app.use((req, res, next) => {

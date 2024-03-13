@@ -88,7 +88,7 @@ body {
 */
 
 a {
-	text-decoration: none;
+	text-decoration: none !important ;
 	color: #00B7FF;
 }
 
@@ -139,7 +139,7 @@ a {
 
 /*********************************/
 .nav {
-	display: grid;
+	display: grid !important;
 	grid-template-columns: repeat(3, 15vw);
 	justify-content: space-between;
 	margin: 5vh 15vw;
@@ -184,3 +184,12 @@ a {
 */
 
 /****************************/
+/**********Transaction form Style******************/
+.form-control:focus,
+.form-select:focus {
+  box-shadow: none;
+  border-color:   var(--Primary-color) !important; 
+}
+.btn{
+  background-color: var(--Primary-color) !important;
+}
