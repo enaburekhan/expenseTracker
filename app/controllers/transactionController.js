@@ -12,4 +12,8 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+router.delete('/:id/delete', async(req, res, next) => {
+  res.redirect('/transactions')
+})
+
 module.exports = router;

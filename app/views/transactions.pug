@@ -2,6 +2,7 @@ extends layout
 
 block style 
   link(rel="stylesheet" href="./stylesheets/transaction_list.css")
+  script(src="./scripts/transactions.js" defer) 
 
 block content
   h1= title
@@ -21,7 +22,7 @@ block content
               p.date #{transaction.Date?transaction.Date.toISOString().split('T')[0]:''}
 
   
-          //p
+          //-p
             | TransactionID: #{transaction.TransactionID}, Type: #{transaction.Type}, Amount: #{transaction.Amount},
             | Date: #{transaction.Date ? transaction.Date.toISOString().split('T')[0] : 'N/A'}
             | Description: #{transaction.Description}
@@ -29,7 +30,14 @@ block content
           div.rightie
             p.amount #{transaction.Type=='expense'?'-':'+'} $#{transaction.Amount}
             p.dots ⋯
+            div.options.invisible
+              - let urlUpdate = `/transactions/${transaction.TransactionID}/update`
+              - let urlDelete = `/transactions/${transaction.TransactionID}/delete`
+              a(href='#') Edit
+              a(href=urlDelete method="delete") Delete
 
          
   else
     p There are no users
+
+  

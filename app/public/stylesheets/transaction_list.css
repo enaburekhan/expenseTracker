@@ -5,6 +5,15 @@
 	align-items: center;
 }
 
+.nav > a > .transactions {
+	border-bottom: 4px solid #572AA9;
+}
+
+.nav > a > .transactions > p {
+	color: #462287;
+	font-weight: bold;
+}
+
 /****************************/
 
 h1 {
@@ -95,9 +104,45 @@ li {
 	font-weight: bold;
 }
 
+
+/*****************************/
+
 .dots {
 	border: 2px solid #572aa9;
 	padding: 0.10vh 0.25vw;
 	height: auto;
 	border-radius: 50px;
+}
+
+.dots:hover {
+	cursor: pointer; 
+}
+
+.options {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	right: 22vw;
+	border: 1px solid rgb(247, 240, 240);
+}
+
+.options > a {
+	text-align: center;
+	padding: 1vh;
+	color: #6b5b88;
+	background-color: white;
+	font-size: 0.8vw;
+
+	-webkit-box-shadow: 3px 29px 63px 4px rgba(0,0,0,0.1);
+	-moz-box-shadow: 3px 29px 63px 4px rgba(0,0,0,0.1);
+	box-shadow: 3px 29px 63px 4px rgba(0,0,0,0.1);
+}
+
+.options > a:hover {
+	background-color: rgb(236, 236, 236);
+	color: #572aa9
+}
+
+.invisible {
+	display: none;
 }
