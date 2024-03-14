@@ -37,6 +37,10 @@ app.get('/EditExpenses', async (req, res, next) => {
   }
 });
 
+app.get('/home', (req, res) => {
+  res.send('home');
+});
+
 app.use((req, res, next) => {
   next(createError(404));
 });

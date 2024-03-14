@@ -32,10 +32,18 @@ block content
           option(value="Income") Income
         label(for="ExpenseType") Expense Type
 
+      //- // Expense Category select
+      //- div.form-floating.mb-3
+      //-   select#ExpenseCategory.form-select(aria-label="Floating label select example")
+      //-     option(selected, disabled, hidden) Choose Expense Category
+      //-   label(for="ExpenseCategory") Expense Category
+
       // Expense Category select
       div.form-floating.mb-3
         select#ExpenseCategory.form-select(aria-label="Floating label select example")
           option(selected, disabled, hidden) Choose Expense Category
+          each category in categories
+            option(value=category.CategoryID) #{category.CategoryName}
         label(for="ExpenseCategory") Expense Category
 
       // Expense Description textarea
