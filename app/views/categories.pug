@@ -7,11 +7,12 @@ block content
 
   if categories
     div(class='purple')
-      p Add Category
+      a(href='/categories/create') Add a Category
 
     ul
       each category in categories
-        li
+        //-li
           | CategoryID: #{category.CategoryID}, CategoryName: #{category.CategoryName}
+        li #{category.CategoryName}
   else
     p There are no categories
