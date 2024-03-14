@@ -193,3 +193,8 @@ a {
 .btn{
   background-color: var(--Primary-color) !important;
 }
+
+.card-body{
+   background-color: var(--Neutral400-text-main) !important; 
+}
+

@@ -5,6 +5,7 @@ const userController = require('./controllers/userController');
 const categoryController = require('./controllers/categoryController');
 const transactionController = require('./controllers/transactionController');
 const { getCategories } = require('./models/categoryModel');
+const transactionModel = require('./models/transactionModel');
 
 const app = express();
 
@@ -36,13 +37,14 @@ app.get('/EditExpenses', async (req, res, next) => {
     next(error);
   }
 });
-
-app.get('/home', (req, res) => {
-  res.send('home');
-});
-
-app.use((req, res, next) => {
-  next(createError(404));
+// Define route for the home page
+app.get('/homePage', async (req, res, next) => {
+  try {
+    const transactions = await transactionModel.getTransactions();
+    res.render('home', { title: 'Transaction List', transactions });
+  } catch (err) {
+    next(err);
+  }
 });
 
 app.use((err, req, res, next) => {
