@@ -1,0 +1,52 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: var(--Primary-color);
+    margin-bottom: 4vh;
+    font-size: 1.5rem;
+}
+
+.purple {
+    display: flex;
+    justify-content: center;
+}
+.purple > p {
+    width: 30vw;
+    padding: 1.5vh 0;
+
+    background-color: var(--Neutral300-border-color);
+
+    text-align: center;
+    font-size: var(--T2-medium-title-font-size);
+}
+
+ul {
+    width: 30vw;
+
+    display: flex;
+    flex-direction: column;
+
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+
+    padding-top: 4vh;
+
+    -webkit-box-shadow: 3px -1px 55px -42px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px -1px 55px -42px rgba(0,0,0,0.75);
+    box-shadow: 3px -1px 55px -42px rgba(0,0,0,0.75);
+}
+
+li {
+    list-style: none;
+    padding: 0 2vw;
+    padding-bottom: 4vh;
+
+    display: flex;
+    align-items: center;
+}

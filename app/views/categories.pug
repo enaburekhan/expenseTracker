@@ -1,9 +1,14 @@
 extends layout
+block style
+  link(rel="stylesheet", href="./stylesheets/catergoriesList.css")
 
 block content
   h1= title
 
   if categories
+    div(class='purple')
+      p Add Category
+
     ul
       each category in categories
         li
