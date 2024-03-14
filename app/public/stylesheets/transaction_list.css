@@ -134,8 +134,8 @@ li {
 	font-size: 0.8vw;
 
 	-webkit-box-shadow: 3px 29px 63px 4px rgba(0,0,0,0.1);
-	-moz-box-shadow: 3px 29px 63px 4px rgba(0,0,0,0.1);
-	box-shadow: 3px 29px 63px 4px rgba(0,0,0,0.1);
+	-moz-box-shadow: 	3px 29px 63px 4px rgba(0,0,0,0.1);
+	box-shadow: 		3px 29px 63px 4px rgba(0,0,0,0.1);
 }
 
 .options > a:hover {
@@ -145,4 +145,39 @@ li {
 
 .invisible {
 	display: none;
+}
+
+/**********************************/
+dialog {
+	position: relative;
+
+	left: 40vw;
+	top: 40vh;
+
+	padding: 2vh 2vw;
+	border: none;
+	border-radius: 16px;
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-between;
+	
+	margin-top: 4vh;
+	margin-bottom: 0.5vh;
+}
+
+.buttons > button {
+	background-color: #6b5b88;
+	
+	border-radius: 8px;
+	
+	color: white;
+	padding: 1vh 2vw;
+
+	border: none;	
+}
+
+.buttons > button:active {
+	background-color: #572AA9;
 }

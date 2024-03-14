@@ -19,3 +19,35 @@ for (let i=0; i<options.length; i++){
 }
 
 //////////////////////////////////////////////
+
+const del = document.querySelectorAll('#delete')
+const dialog = document.querySelector('dialog')
+const close = document.querySelector('#close')
+const submit = document.querySelector('#submit')
+
+for(let i=0; i<del.length; i++){
+	del[i].addEventListener('click', function(){
+		const storage = document.querySelector('.storage')
+		const info = del[i].parentNode.parentNode.previousSibling.lastChild
+		const secret = document.querySelector('#secret')
+
+		storage.innerHTML = ''
+		storage.append(info.cloneNode(true))
+
+		//console.log(info.firstChild)
+		
+		secret.setAttribute('value', info.firstChild.innerHTML)
+		
+		console.log(secret)
+
+		dialog.showModal()
+		
+		document.URL + '/id/delete'
+
+
+	})
+}
+
+close.addEventListener('click', function(){
+	dialog.close()
+})
