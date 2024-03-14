@@ -4,6 +4,7 @@ const createError = require("http-errors");
 const userController = require("./controllers/userController");
 const categoryController = require("./controllers/categoryController");
 const transactionController = require("./controllers/transactionController");
+const signupandloginController = require("./controllers/signupandloginController");
 
 const app = express();
 
@@ -15,10 +16,15 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/users", userController);
 app.use("/categories", categoryController);
 app.use("/transactions", transactionController);
+app.use("/auth", signupandloginController);
 
 app.get("/landing_page", (req, res) => {
   res.render("landing_page");
 });
+
+// app.get("/signupandlogin", (req, res) => {
+//   res.render("signupandlogin");
+// });
 
 app.use((req, res, next) => {
   next(createError(404));
