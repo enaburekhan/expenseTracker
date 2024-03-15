@@ -29,23 +29,6 @@ app.get('/RecordExpenses', async (req, res, next) => {
     next(error);
   }
 });
-app.get('/EditExpenses', async (req, res, next) => {
-  try {
-    const categories = await getCategories();
-    res.render('editExpense', { categories });
-  } catch (error) {
-    next(error);
-  }
-});
-// Define route for the home page
-app.get('/homePage', async (req, res, next) => {
-  try {
-    const transactions = await transactionModel.getTransactions();
-    res.render('home', { title: 'Transaction List', transactions });
-  } catch (err) {
-    next(err);
-  }
-});
 
 app.use((err, req, res, next) => {
   res.locals.message = err.message;
