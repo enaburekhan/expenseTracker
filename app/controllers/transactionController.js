@@ -19,7 +19,7 @@ router.get('/', async (req, res, next) => {
 router.get('/create', async (req, res, next) => {
   const categories = await categoryModel.getCategories()
   //console.log(categories)
-  res.render('transaction_form', {
+  res.render('RransactionForm', {
     title: "Add a Transaction",
     categories: categories,
   })
