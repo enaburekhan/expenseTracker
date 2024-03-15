@@ -7,7 +7,9 @@ block content
 
   if categories
     div(class='purple')
-      a(href='/categories/create') Add a Category
+      img(src="/images/add-circle.png", alt="add-circle", srcset="" class='add-circle')
+      a(href='/categories/create' class='title-text') Add a Category
+        
 
     ul
       each category in categories
