@@ -11,6 +11,17 @@ COPY package*.json /src/
 # Ask npm to install the dependencies
 RUN npm install -g supervisor && npm install && npm install supervisor
 
+
+# Install Bootstrap
+RUN npm install bootstrap
+
+# Build your Docker image using the Dockerfile:
+# Copy this line to your terminal "docker build -t your-image-name"
+# This will build the Docker image with the updated dependencies, including Bootstrap.
+
+# Run a container using the built image:
+# Copy this line to your terminal "docker run -p 3000:3000 your-image-name"
+
 # Copy across all our files
 COPY . /src
 
