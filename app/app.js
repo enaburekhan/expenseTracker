@@ -21,10 +21,11 @@ app.use('/transactions', transactionController);
 app.get('/', (req, res) => {
   res.send('Hello world!');
 });
-app.get('/RecordExpenses', async (req, res, next) => {
+
+app.get('/EditExpenses', async (req, res, next) => {
   try {
     const categories = await getCategories();
-    res.render('expenses', { categories });
+    res.render('editExpensesForm', { categories });
   } catch (error) {
     next(error);
   }
