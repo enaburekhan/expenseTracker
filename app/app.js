@@ -4,6 +4,7 @@ const createError = require('http-errors');
 const userController = require('./controllers/userController');
 const categoryController = require('./controllers/categoryController');
 const transactionController = require('./controllers/transactionController');
+const userRoutes = require('routes/userRoutes')
 
 const app = express();
 
@@ -12,7 +13,8 @@ app.set('view engine', 'pug');
 app.set('views', './app/views');
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/users', userController);
+app.use('/users', userRoutes)
+// app.use('/users', userController);
 app.use('/categories', categoryController);
 app.use('/transactions', transactionController);
 
