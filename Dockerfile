@@ -11,6 +11,7 @@ COPY package*.json /src/
 # Ask npm to install the dependencies
 RUN npm install -g supervisor && npm install && npm install supervisor
 
+
 # Install Bootstrap
 RUN npm install bootstrap
 
