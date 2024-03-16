@@ -1,10 +1,13 @@
 const express = require('express');
 const path = require('path');
 const createError = require('http-errors');
-const userController = require('./controllers/userController');
+// const userController = require('./controllers/userController');
 const categoryController = require('./controllers/categoryController');
 const transactionController = require('./controllers/transactionController');
-const userRoutes = require('routes/userRoutes')
+const userRoutes = require('./routes/userRoutes')
+const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser')
+const cors = require('cors')
 
 const app = express();
 
@@ -12,9 +15,15 @@ app.use(express.static('static'));
 app.set('view engine', 'pug');
 app.set('views', './app/views');
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieParser())
+app.use(bodyParser.json())
+app.use(cors({
+  origin: 'http://localhost:3000',
+  methods: 'GET, POST, PUT, PATCH, DELETE',
+  allowedHeaders: 'Content-Type, Accepts, Authorization'
+}))
 
-app.use('/users', userRoutes)
-// app.use('/users', userController);
+app.use(userRoutes)
 app.use('/categories', categoryController);
 app.use('/transactions', transactionController);
 

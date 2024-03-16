@@ -13,17 +13,23 @@ const config = {
     connectionLimit: 2,
     queueLimit: 0,
   },
+  secretKey: process.env.SECRET_KEY
 };
   
 const pool = mysql.createPool(config.db);
 
 // Utility function to query the database
 async function query(sql, params) {
-  const [rows, fields] = await pool.execute(sql, params);
+  // Filter out undefined parameters
+  const filteredParams = params.filter(param => param !== undefined)
+
+  // Execute the query with filtered parameters
+  const [rows, fields] = await pool.execute(sql, filteredParams);
 
   return rows;
 }
 
 module.exports = {
   query,
+  secretKey: config.secretKey
 }
