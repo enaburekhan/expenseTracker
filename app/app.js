@@ -23,6 +23,17 @@ app.get("/landing_page", (req, res) => {
   res.render("landing_page");
 });
 
+app.get('/home', async (req, res, next)=> {
+  const transactions = await transactionModel.getTransactions();
+  const totalBalance = transactionModel.calculateTotalBalance(transactions);
+
+  res.render('HomePage', {
+    title: 'Home',
+    transactions,
+    totalBalance,
+  })
+})
+
 app.use((req, res, next) => {
   next(createError(404));
 });
