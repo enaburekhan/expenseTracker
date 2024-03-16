@@ -100,9 +100,8 @@ h4 {
 #filteringDD {
 	display: none;
 	position:absolute;
-	left: 60vw;
-
-	padding: 1vw;
+	left: 58.5vw;
+	top: 44.5vh;
 
 	background-color: white;
 
@@ -117,7 +116,12 @@ h4 {
 }
 
 #filteringDD > div > p {
-	padding: 0.5vw;
+	padding: 1vw;
+	width: 10vw;
+}
+
+#filteringDD > div > p:hover {
+	background-color: #eeeeee;
 }
 
 
@@ -232,10 +236,10 @@ li {
 
 /**********************************/
 dialog {
-	position: relative;
+	position: fixed;
 
 	left: 40vw;
-	top: 40vh;
+	top: 40vh ;
 
 	padding: 2vh 2vw;
 	border: none;
