@@ -4,6 +4,8 @@ const createError = require('http-errors');
 const userController = require('./controllers/userController');
 const categoryController = require('./controllers/categoryController');
 const transactionController = require('./controllers/transactionController');
+const { getCategories } = require('./models/categoryModel');
+const transactionModel = require('./models/transactionModel');
 
 const app = express();
 
