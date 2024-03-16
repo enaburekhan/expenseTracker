@@ -40,13 +40,10 @@ block content
           option(value=category.CategoryID) #{category.CategoryName}
       label(for="ExpenseCategory") Transaction Category
 
-    div.form-floating.mb-3
-      textarea(name="Description", style='width: 50vw; height: 10vh; border: 1px solid lightgray; padding: 1vw;' placeholder='Add a description...' required)
-      label(for='Description') 
     // Expense Description textarea
-      div.form-floating.mb-3.mt-2
-        textarea#ExpenseDescription.form-control(placeholder="Expense Description")
-        label(for="ExpenseDescription") Expense Description
+    div.form-floating.mb-3.mt-2
+      textarea#ExpenseDescription.form-control(name="Description", placeholder="Expense Description")
+      label(for="Description") Expense Description
 
     // Edit Transaction button
     button.btn.my-2.text-light(type="submit") Edit Transaction
