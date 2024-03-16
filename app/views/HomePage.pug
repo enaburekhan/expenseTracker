@@ -17,16 +17,17 @@ block content
   
   // Transaction card section
   div.card.mt-5.mx-auto.w-50.text-light.rounded-2
-    div.card-body.text-center
+    div.card-body.text-left
       - if (transactions && transactions.length > 0)
         - transactions.sort((a, b) => b.Date - a.Date)
         - transactions = transactions.slice(0, 5)
         ul.list-unstyled
           each transaction in transactions
-            li.py-2
-              | #{transaction.Description},
-              | $#{transaction.Amount},
-              | On #{transaction.Date ? transaction.Date.toISOString().split('T')[0] : 'N/A'}
+            li.py-2.border-bottom.border-3
+              .row
+                .col-4 #{transaction.Description}
+                .col-4 $#{transaction.Amount}
+                .col-4 #{transaction.Date ? transaction.Date.toISOString().split('T')[0] : 'N/A'}
       - else
         p There are no transactions
       // Button to navigate to edit transaction page
