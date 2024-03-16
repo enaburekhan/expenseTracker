@@ -22,6 +22,17 @@ app.get('/', (req, res) => {
   res.send('Hello world!');
 });
 
+app.get('/home', async (req, res, next)=> {
+  const transactions = await transactionModel.getTransactions();
+  const totalBalance = transactionModel.calculateTotalBalance(transactions);
+
+  res.render('HomePage', {
+    title: 'Home',
+    transactions,
+    totalBalance,
+  })
+})
+
 app.use((err, req, res, next) => {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
