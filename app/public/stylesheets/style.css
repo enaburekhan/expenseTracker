@@ -195,6 +195,6 @@ a {
 }
 
 .card-body{
-   background-color: var(--Neutral400-text-main) !important; 
+   background-image: url(../images/cardBackground.png) !important; 
 }
 
