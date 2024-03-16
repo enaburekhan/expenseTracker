@@ -16,7 +16,7 @@ block content
       a.btn.mt-3.text-light(href="/transactions/create") Add New Transaction
   
   // Transaction card section
-  div.card.mt-5.mx-auto.w-50.text-light.rounded-2
+  div.card.mt-2.mx-auto.w-50.text-light.rounded-2
     div.card-body.text-left
       - if (transactions && transactions.length > 0)
         - transactions.sort((a, b) => b.Date - a.Date)
