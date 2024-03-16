@@ -88,8 +88,8 @@ body {
 */
 
 a {
-	text-decoration: none;
-	color: #00B7FF;
+  text-decoration: none;
+  color: #00b7ff;
 }
 
 .header {
@@ -139,10 +139,10 @@ a {
 
 /*********************************/
 .nav {
-	display: grid;
-	grid-template-columns: repeat(3, 15vw);
-	justify-content: space-between;
-	margin: 5vh 15vw;
+  display: grid;
+  grid-template-columns: repeat(3, 15vw);
+  justify-content: space-between;
+  margin: 5vh 15vw;
 }
 
 .nav > a > div {
