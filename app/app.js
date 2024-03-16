@@ -21,36 +21,6 @@ app.use('/transactions', transactionController);
 app.get('/', (req, res) => {
   res.send('Hello world!');
 });
-app.get('/RecordExpenses', async (req, res, next) => {
-  try {
-    const categories = await getCategories();
-    res.render('expenses', { categories });
-  } catch (error) {
-    next(error);
-  }
-});
-
-app.get('/homePage', async (req, res, next) => {
-  try {
-    const transactions = await transactionModel.getTransactions();
-
-    const query = 'SELECT SUM(CASE WHEN type = "income" THEN amount ELSE -amount END) AS total_balance FROM transactions';
-
-    db.query(query, (err, results) => {
-      if (err) {
-        console.error('Error executing SQL query: ', err);
-        res.status(500).send('Internal Server Error');
-        return;
-      }
-
-      const totalBalance = results[0].total_balance;
-
-      res.render('HomePage', { title: 'Transaction List', transactions, totalBalance });
-    });
-  } catch (err) {
-    next(err);
-  }
-});
 
 app.use((err, req, res, next) => {
   res.locals.message = err.message;

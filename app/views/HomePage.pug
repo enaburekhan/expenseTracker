@@ -11,13 +11,13 @@ block content
     div.card.mt-5.mx-auto.w-50
       div.card-body.text-center.py-5
         h5.card-title Your Balance
-        p.card-text $1000.00
+        p.card-text #{totalBalance}
 
         // Button to navigate to transaction page
         a.btn.mt-3.text-light(href="/RecordExpenses") Add New Transaction
     
     // Transaction card section
-    div.card.mt-5.mx-auto.w-75.text-light.rounded-2
+    div.card.mt-5.mx-auto.w-50.text-light.rounded-2
       div.card-body.text-center
         - if (transactions && transactions.length > 0)
           ul.list-unstyled
