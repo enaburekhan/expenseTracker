@@ -51,3 +51,6 @@ for(let i=0; i<del.length; i++){
 close.addEventListener('click', function(){
 	dialog.close()
 })
+
+//////////SORTING////////////////////////
+

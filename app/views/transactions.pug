@@ -9,10 +9,33 @@ block content
 
   if transactions
     div.purple
-        p Sort
-        p Filter
+        div#sorting 
+          p Sort
+          div#sortingDD
+            div.quantity
+              h4 Amount
+              p Asc
+              p Desc
 
-    ul(class='t_container')
+            div.date
+              h4 Date
+              p Asc
+              p Desc
+
+        div#filtering Filter
+          div#filteringDD
+            div
+              h4 Date
+              p Last Day
+              p Last Week
+              p Last Month
+
+    //- transactions.sort((a, b) => b.Amount - a.Amount)
+    //- transactions.sort((a, b) => a.Date - b.Date)
+
+    //- transactions = transactions.filter((a) => a.Date < new Date(Date.now() - 180 * 24 * 60 * 60 * 1000))
+    
+    ul
       each transaction in transactions
         li
           div.leftie
