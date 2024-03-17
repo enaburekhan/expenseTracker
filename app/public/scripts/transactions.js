@@ -18,47 +18,11 @@ for (let i=0; i<options.length; i++){
 	}
 }
 
-//////////////////////////////////////////////
-
-const del = document.querySelectorAll('#delete')
-const dialog = document.querySelector('dialog')
-const close = document.querySelector('#close')
-const submit = document.querySelector('#submit')
-
-for(let i=0; i<del.length; i++){
-	del[i].addEventListener('click', function(){
-		const storage = document.querySelector('.storage')
-		const info = del[i].parentNode.parentNode.previousSibling.lastChild
-		const secret = document.querySelector('#secret')
-
-		storage.innerHTML = ''
-		storage.append(info.cloneNode(true))
-
-		//console.log(info.firstChild)
-		
-		secret.setAttribute('value', info.firstChild.innerHTML)
-		
-		console.log(secret)
-
-		dialog.showModal()
-		
-		document.URL + '/id/delete'
-
-
-	})
-}
-
-close.addEventListener('click', function(){
-	dialog.close()
-})
-
-/////////////////SORTING////////////////////////
+///////////////////////SORTING////////////////////////
 const quantAsc = document.querySelector('#quantAsc')
 const quantDesc = document.querySelector('#quantDesc')
 const dateAsc = document.querySelector('#dateAsc')
 const dateDesc = document.querySelector('#dateDesc')
-
-let ul = document.querySelectorAll('ul')
 
 let descAmaUl = document.querySelector('#descAmaUl')
 let ascAmaUl = document.querySelector('#ascAmaUl')
@@ -67,45 +31,119 @@ let descTimeUl = document.querySelector('#descTimeUl')
 
 
 quantAsc.addEventListener('click', function(){
-	//document.body.style.backgroundColor = 'red'
-	for(let i=0; i<ul.length; i++){
-		if(ul[i].classList.contains('invisible') == false){
-			ul[i].classList.toggle('invisible')
-		}
-	}
-	ascAmaUl.classList.remove('invisible')
+	let ul = $('#main')
+	let li = ul.children('li').get()
+
+	li.sort((a,b) => {
+		let aValue = parseInt($(a).find('.rightie .amount').text())
+		let bValue = parseInt($(b).find('.rightie .amount').text())
+
+		//console.log(aValue, bValue)
+		
+		return aValue - bValue
+	})
+	ul.empty()
+	ul.append(li)
+	
+	dialog()
 })
 
 quantDesc.addEventListener('click', function(){
-	//document.body.style.backgroundColor = 'orange'
-	for(let i=0; i<ul.length; i++){
-		if(ul[i].classList.contains('invisible') == false){
-			ul[i].classList.toggle('invisible')
-		}	
-	}
-	descAmaUl.classList.remove('invisible')
+	let ul = $('#main')
+	let li = ul.children('li').get()
 
+	li.sort((a,b) => {
+		let aValue = parseInt($(a).find('.rightie .amount').text())
+		let bValue = parseInt($(b).find('.rightie .amount').text())
+
+		//console.log(aValue, bValue)
+		
+		return bValue - aValue
+	})
+	ul.empty()
+	ul.append(li)
+
+	dialog()
 })
 
 dateAsc.addEventListener('click', function(){
-	//document.body.style.backgroundColor = 'green'
-	for(let i=0; i<ul.length; i++){
-		if(ul[i].classList.contains('invisible') == false){
-			ul[i].classList.toggle('invisible')
-		}	
-	}
-	ascTimeUl.classList.remove('invisible')
+	let ul = $('#main')
+	let li = ul.children('li').get()
+
+	li.sort((a,b) => {
+		let aValue = $(a).find('.leftie .date').text()
+		let bValue = $(b).find('.leftie .date').text()
+
+		aValue = new Date(aValue)
+		bValue = new Date(bValue)
+
+		//console.log(aValue, bValue)
+		
+		return aValue - bValue
+	})
+	ul.empty()
+	ul.append(li)
+
+	dialog()
 })
 
 dateDesc.addEventListener('click', function(){
-	//document.body.style.backgroundColor = 'blue'
-	for(let i=0; i<ul.length; i++){
-		if(ul[i].classList.contains('invisible') == false){
-			ul[i].classList.toggle('invisible')
-		}	
-	}
-	descTimeUl.classList.remove('invisible')
+	let ul = $('#main')
+	let li = ul.children('li').get()
 
+	li.sort((a,b) => {
+		let aValue = $(a).find('.leftie .date').text()
+		let bValue = $(b).find('.leftie .date').text()
+
+		aValue = new Date(aValue)
+		bValue = new Date(bValue)
+
+		//console.log(aValue, bValue)
+
+		return bValue - aValue
+	})
+	ul.empty()
+	ul.append(li)
+
+	dialog()
 })
 
 //console.log(transactions)
+
+/////////////////////// FILTERING ////////////////////////
+
+
+//////////////////////////////////////////////
+
+function dialog(){
+	const del = document.querySelectorAll('#delete')
+	const dialog = document.querySelector('dialog')
+	const close = document.querySelector('#close')
+	const submit = document.querySelector('#submit')
+
+	for(let i=0; i<del.length; i++){
+		del[i].addEventListener('click', function(){
+			const storage = document.querySelector('.storage')
+			const info = del[i].parentNode.parentNode.previousSibling.lastChild
+			const secret = document.querySelector('#secret')
+
+			storage.innerHTML = ''
+			storage.append(info.cloneNode(true))
+
+			//console.log(info.firstChild)
+			
+			secret.setAttribute('value', info.firstChild.innerHTML)
+			
+			console.log(secret)
+
+			dialog.showModal()
+			
+			//document.URL + '/id/delete'
+
+
+		})
+	}
+
+}
+
+//dialog()
