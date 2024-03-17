@@ -22,7 +22,7 @@ function dialog(){
 
 	const del = document.querySelectorAll('#delete')
 	const dialog = document.querySelector('dialog')
-	const close = document.querySelector('#close')
+	//const close = document.querySelector('#close')
 	//const submit = document.querySelector('#submit')
 
 	for(let i=0; i<del.length; i++){
@@ -47,11 +47,6 @@ function dialog(){
 
 		})
 	}
-
-	close.addEventListener('click', function(){
-		dialog.close()
-	})
-
 }
 
 dialog()

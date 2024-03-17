@@ -52,9 +52,9 @@ block content
             p.dots ⋯
             div.options.invisible
               - let urlUpdate = `/transactions/${transaction.TransactionID}/update`
-              - let urlDelete = `/transactions/${transaction.TransactionID}/delete`
+              //- let urlDelete = `/transactions/${transaction.TransactionID}/delete`
               a(href=urlUpdate)#update Update
-              a(href='#')#delete Delete
+              a#delete Delete
       
     dialog
       form(method='POST')
@@ -68,7 +68,7 @@ block content
         
         div.buttons
           button(type="submit" id='submit') Yes
-          button(type="reset" id='close') No
+          button(type="close" id='close') No
 
   else
     p There are no users

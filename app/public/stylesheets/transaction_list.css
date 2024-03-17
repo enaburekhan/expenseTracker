@@ -62,8 +62,8 @@ h1 {
 	background-color: white;
 
 	-webkit-box-shadow: 3px 29px 63px 4px rgba(0,0,0,0.1);
-	-moz-box-shadow: 3px 29px 63px 4px rgba(0,0,0,0.1);
-	box-shadow: 3px 29px 63px 4px rgba(0,0,0,0.1);
+	-moz-box-shadow: 	3px 29px 63px 4px rgba(0,0,0,0.1);
+	box-shadow: 		3px 29px 63px 4px rgba(0,0,0,0.1);
 	border-radius: 4px;
 }
 
@@ -108,8 +108,8 @@ h4 {
 	background-color: white;
 
 	-webkit-box-shadow: 3px 29px 63px 4px rgba(0,0,0,0.1);
-	-moz-box-shadow: 3px 29px 63px 4px rgba(0,0,0,0.1);
-	box-shadow: 3px 29px 63px 4px rgba(0,0,0,0.1);
+	-moz-box-shadow: 	3px 29px 63px 4px rgba(0,0,0,0.1);
+	box-shadow: 		3px 29px 63px 4px rgba(0,0,0,0.1);
 	border-radius: 4px;
 }
 
@@ -141,8 +141,8 @@ ul {
 	padding-top: 4vh;
 
 	-webkit-box-shadow: 3px 29px 63px 4px rgba(0,0,0,0.1);
-	-moz-box-shadow: 3px 29px 63px 4px rgba(0,0,0,0.1);
-	box-shadow: 3px 29px 63px 4px rgba(0,0,0,0.1);
+	-moz-box-shadow: 	3px 29px 63px 4px rgba(0,0,0,0.1);
+	box-shadow: 		3px 29px 63px 4px rgba(0,0,0,0.1);
 
 	margin-bottom: 20vh;
 
