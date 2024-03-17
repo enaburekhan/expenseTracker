@@ -1,22 +1,25 @@
 const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { SECRET_KEY } = require('../services/db');
+const { secretKey } = require('../services/db');
 const { validationResult } = require('express-validator');
+const { v4: uuidv4 } = require('uuid')
 
 
 exports.signup = async (req, res, next) => {
   try{
     // Generate salt
-    const salt = bcrypt.genSaltSync(12)
+    const salt = await bcrypt.genSalt(12)
 
     // Hash password with the generated salt
+    console.log('password', req.body.Password);
     const hashedPassword = bcrypt.hashSync(req.body.Password, salt)
     // Create user
-    const userId = await User.createUser(req.body.Email, hashedPassword, req.body.Username, req.body.FirstName)
+    const UserID = uuidv4();
+    const userId = await User.createUser(UserID, req.body.Email, hashedPassword, req.body.Username, req.body.FirstName)
     
-    // create token
-    const token = jwt.sign({userId}, SECRET_KEY, {expiresIn: '2h'})
+    // Create token
+    const token = jwt.sign({userId}, secretKey, {expiresIn: '2h'})
 
     // Send back response with cookie
     res.status(200).cookie('token', token, {httpOnly: true}).json({ message: 'User Created'})
@@ -30,26 +33,33 @@ exports.signup = async (req, res, next) => {
 
 exports.login = async (req, res, next) => {
   try{
-    // validation error handling
+    // Validation error handling
     const errors = validationResult(req)
     if(!errors.isEmpty()){
       return res.status(422).json({ errors: errors.array() })
     }
 
     // Fetch user by email
-    const user = await User.getUserByEmail(req.body.Email);
-    if(!user){
+    const user = await User.getUser(req.body.Email, req.body.Password);
+
+    // Check if the user is null or undefined
+    if(!user || user === undefined){
       return res.status(401).json({ errors: 'Invalid credentials'});
     }
 
-    // Check password
-    const isPasswordValid = await bcrypt.compare(req.body.Password, user.Password);
-    if(!isPasswordValid){
-      return res.status(401).json({ error: 'Invalid credentials'})
+    // Check if the password is provided
+    if(!req.body.Password){
+      return res.status(401).json({ errors: 'Password is required'})
     }
 
+    // Check password
+    const isPasswordValid = await bcrypt.compare(req.body.Password, user.hashedPassword);
+    if(!isPasswordValid){
+      return res.status(401).json({ error: 'Invalid credentials'})
+    } 
+
     // Generate access token
-    const accessToken = jwt.sign({ userId: user.UserID}, SECRET_KEY, { expiresIn: '2h'})
+    const accessToken = jwt.sign({ userId: user.UserID}, secretKey, { expiresIn: '2h'})
 
     // Respond with token
     res.status(200).json({ accessToken})

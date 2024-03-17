@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const createError = require('http-errors');
-// const userController = require('./controllers/userController');
 const categoryController = require('./controllers/categoryController');
 const transactionController = require('./controllers/transactionController');
 const userRoutes = require('./routes/userRoutes')

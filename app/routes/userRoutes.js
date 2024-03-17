@@ -3,7 +3,6 @@ const router = express.Router();
 const {body} = require('express-validator')
 const { signup, login } = require('../controllers/userController')
 const User = require('../models/userModel');
-const bcrypt = require('bcrypt')
 
 
 router.post('/signup', [
@@ -13,7 +12,10 @@ router.post('/signup', [
         return Promise.reject('User already exist')
      }
    }), 
-   body('Password').notEmpty().withMessage("Password field can't be empty")
+   body('Password').notEmpty().withMessage("Password field can't be empty"),
+   body('Username')
+      .notEmpty().withMessage("Username field can't be empty")
+      .isLength({ min: 4 }).withMessage('Username must be at least 4 characters long')
 ], 
 signup
 );
