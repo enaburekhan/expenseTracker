@@ -27,9 +27,9 @@ block content
           div#filteringDD
             div
               h4 Date
-              p Last Day
-              p Last Week
-              p Last Month
+              p#day Last Day
+              p#week Last Week
+              p#month Last Month
 
     ul#main
       each transaction in transactions
@@ -54,21 +54,21 @@ block content
               - let urlUpdate = `/transactions/${transaction.TransactionID}/update`
               - let urlDelete = `/transactions/${transaction.TransactionID}/delete`
               a(href=urlUpdate)#update Update
-              a(href=urlDelete)#delete Delete
+              a(href='#')#delete Delete
       
-      dialog
-        form(method='POST')
-          div
-            p Are you sure you want to delete this transaction?
-            br
-            p.storage
-          
-          div.invisible
-            input(type='text' name='transaction_id' id='secret')
-          
-          div.buttons
-            button(type="submit" id='submit') Yes
-            button(type="reset" id='close') No
+    dialog
+      form(method='POST')
+        div
+          p Are you sure you want to delete this transaction?
+          br
+          p.storage
+        
+        div.invisible
+          input(type='text' name='transaction_id' id='secret')
+        
+        div.buttons
+          button(type="submit" id='submit') Yes
+          button(type="reset" id='close') No
 
   else
     p There are no users

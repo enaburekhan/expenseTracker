@@ -57,7 +57,7 @@ h1 {
 #sortingDD {
 	display: none;
 	position: absolute;
-	top: 5vh;
+	top: 4.5vh;
 	left: 5vw;
 	background-color: white;
 
@@ -96,12 +96,14 @@ h4 {
 }
 
 /*************************/
-
+#filtering {
+	position: relative;
+}
 #filteringDD {
 	display: none;
 	position:absolute;
-	left: 58.5vw;
-	top: 44.5vh;
+	top: 4.5vh;
+	left: 7.5vw;
 
 	background-color: white;
 
