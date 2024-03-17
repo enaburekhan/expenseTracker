@@ -12,7 +12,7 @@ exports.signup = async (req, res, next) => {
     const salt = await bcrypt.genSalt(12)
 
     // Hash password with the generated salt
-    console.log('password', req.body.Password);
+    console.log('password', req.body);
     const hashedPassword = bcrypt.hashSync(req.body.Password, salt)
     // Create user
     const UserID = uuidv4();

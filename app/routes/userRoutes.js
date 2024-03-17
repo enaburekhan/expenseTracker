@@ -5,7 +5,19 @@ const { signup, login } = require('../controllers/userController')
 const User = require('../models/userModel');
 
 
-router.post('/signup', [
+
+// Render the signup form
+router.get('/user/signup', (req, res) => {
+    res.render('signup');
+  });
+  
+  // Render the login form
+  router.get('/user/login', (req, res) => {
+    res.render('login');
+  });
+
+// Handle signup form submission  
+router.post('/user/signup', [
    body('Email').isEmail().withMessage('Please enter a valid email').custom(async (value) => {
      const foundUser = await User.getUserByEmail(value);
      if(foundUser){
@@ -20,7 +32,9 @@ router.post('/signup', [
 signup
 );
 
-router.post('/login', [
+// Handle login form submission
+
+router.post('/user/login', [
   body('Email').isEmail().withMessage('Please enter a valid email'),
   body('Password').notEmpty().withMessage("Password field can't be empty")
 ], login)
