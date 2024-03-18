@@ -72,7 +72,7 @@ e.g.
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box !important;
   font-family: "Inter", sans-serif;
   color: var(--Neutral400-text-main);
   font-size: 0.88vw;
@@ -93,7 +93,7 @@ a {
 }
 
 .header {
-  display: flex;
+  display: flex !important;
   justify-content: space-between;
   align-items: center;
   margin: 0 15vw;
@@ -184,8 +184,3 @@ a {
 }
 
 */
-
-/****************************/
-
-
-

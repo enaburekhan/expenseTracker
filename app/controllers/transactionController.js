@@ -1,8 +1,8 @@
 const express = require('express');
+const router = express.Router();
 const transactionModel = require('../models/transactionModel');
 const categoryModel = require('../models/categoryModel')
 
-const router = express.Router();
 
 
 // Reading transactions
