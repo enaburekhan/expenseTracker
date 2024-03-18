@@ -16,10 +16,6 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ff272369ff658090b6538bd2fc9f396c3ed892e7
 
 // Creating transactions
 router.get('/create', async (req, res, next) => {
@@ -40,9 +36,6 @@ router.post('/create', async(req, res, next) => {
   }
 
   console.log(passingData)
-<<<<<<< HEAD
-
-=======
   res.redirect('/transactions')
 })
 
@@ -66,7 +59,6 @@ router.post('/:id/update', async(req, res, next) => {
 // DELETING FROM A MODAL
 router.post('/', async(req, res, next) => {
   console.log('use this id to delete in a query: ' + req.body['transaction_id'])
->>>>>>> ff272369ff658090b6538bd2fc9f396c3ed892e7
   res.redirect('/transactions')
 })
 
