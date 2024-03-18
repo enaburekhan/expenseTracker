@@ -43,7 +43,7 @@ router.post('/create', async(req, res, next) => {
 router.get('/:id/update', async(req, res, next) => {
   
   const categories = await categoryModel.getCategories()
-  res.render('TransactionForm', {
+  res.render('transaction_Form', {
     title: `Updating Transaction`,
     categories,
 
@@ -51,8 +51,6 @@ router.get('/:id/update', async(req, res, next) => {
 })
 
 router.post('/:id/update', async(req, res, next) => {
-  
-  const categories = await categoryModel.getCategories()
   res.redirect('/transactions')
 })
 
