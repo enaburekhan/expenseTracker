@@ -19,7 +19,7 @@ app.use('/categories', categoryController);
 app.use('/transactions', transactionController);
 
 app.get('/', (req, res) => {
-  res.send('Hello world!');
+  res.redirect('/home')
 });
 
 app.get('/home', async (req, res, next)=> {
