@@ -23,6 +23,9 @@
 	font-weight: bold;
 }
 
-.nav {
-	
+.nav > a > div {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 4px solid #ddd4ee;
+  padding: 0!important;
 }

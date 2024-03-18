@@ -93,7 +93,7 @@ a {
 }
 
 .header {
-  display: flex;
+  display: flex !important;
   justify-content: space-between;
   align-items: center;
   margin: 0 15vw;
@@ -139,7 +139,7 @@ a {
 
 /*********************************/
 .nav {
-  display: grid;
+  display: grid !important;
   grid-template-columns: repeat(3, 15vw);
   justify-content: space-between;
   margin: 5vh 15vw;
