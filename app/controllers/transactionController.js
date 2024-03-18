@@ -34,7 +34,13 @@ router.post('/create', async(req, res, next) => {
   }
 
   console.log(passingData)
+  res.redirect('/transactions')
+})
 
+
+// DELETING FROM A MODAL
+router.post('/', async(req, res, next) => {
+  console.log('use this id to delete in a query: ' + req.body['transaction_id'])
   res.redirect('/transactions')
 })
 

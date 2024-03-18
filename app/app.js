@@ -1,51 +1,47 @@
-const express = require('express');
-const path = require('path');
-const createError = require('http-errors');
-const userController = require('./controllers/userController');
-const categoryController = require('./controllers/categoryController');
-const transactionController = require('./controllers/transactionController');
-const { getCategories } = require('./models/categoryModel');
-const transactionModel = require('./models/transactionModel');
-//const morgan = require('morgan')
+const express = require("express");
+const path = require("path");
+const createError = require("http-errors");
+
+const userController = require("./controllers/userController");
+const categoryController = require("./controllers/categoryController");
+const transactionController = require("./controllers/transactionController");
+const signupandloginController = require("./controllers/signupandloginController");
 
 const app = express();
 
-//app.use(morgan("tiny"))
+app.use(express.static("static"));
+app.set("view engine", "pug");
+app.set("views", "./app/views");
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-app.use(express.static('static'));
-app.set('view engine', 'pug');
-app.set('views', './app/views');
-app.use(express.static(path.join(__dirname, 'public')));
+app.use("/users", userController);
+app.use("/categories", categoryController);
+app.use("/transactions", transactionController);
+app.use("/auth", signupandloginController);
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-
-app.use('/users', userController);
-app.use('/categories', categoryController);
-app.use('/transactions', transactionController);
-
-app.get('/', (req, res) => {
-  res.send('Hello world!');
+app.get("/landing_page", (req, res) => {
+  res.render("landing_page");
 });
 
-app.get('/EditExpenses', async (req, res, next) => {
-  try {
-    const categories = await getCategories();
-    res.render('editExpensesForm', { categories });
-  } catch (error) {
-    next(error);
-  }
+// app.get("/signupandlogin", (req, res) => {
+//   res.render("signupandlogin");
+// });
+
+app.use((req, res, next) => {
+  next(createError(404));
 });
 
 app.use((err, req, res, next) => {
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.error = req.app.get("env") === "development" ? err : {};
   res.status(err.status || 500);
-  res.render('error');
+  res.render("error");
 });
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
-  console.log(`http://localhost:${port}`)
+  console.log(`http://localhost:${port}`);
 });
