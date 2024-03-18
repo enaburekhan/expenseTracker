@@ -75,7 +75,7 @@ e.g.
   box-sizing: border-box !important;
   font-family: "Inter", sans-serif;
   color: var(--Neutral400-text-main);
-  font-size: 16px;
+  font-size: 0.88vw;
 }
 
 /*

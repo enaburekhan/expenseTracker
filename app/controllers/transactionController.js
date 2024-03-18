@@ -12,6 +12,7 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+<<<<<<< HEAD
 router.get('/home', async (req, res, next) => {
   try {
     const transactions = await transactionModel.getTransactions();
@@ -24,4 +25,18 @@ router.get('/home', async (req, res, next) => {
 });
 
 
+=======
+router.get('/create', async(req, res, next) => {
+  res.render('transaction_form')
+})
+
+
+// DELETING FROM A MODAL
+router.post('/', async(req, res, next) => {
+  console.log('use this id to delete in a query: ' + req.body['transaction_id'])
+
+  res.redirect('/transactions')
+})
+
+>>>>>>> d560055d91685e77cfb30e04c6f5fcb89b69b78c
 module.exports = router;
