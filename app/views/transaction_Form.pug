@@ -18,25 +18,25 @@ block content
 
     //- Transaction Type  //added by daulet
     div.form-floating.mb-3
-      select#TransactionType.form-select(aria-label='Floating label select example' name='Type' required)
+      select#TransactionType.form-select(aria-label='Floating label select example' name='Type' value=`${ transaction ? transaction.Type : '' }` required)
         option Expense
         option Income
       label(for='TransactionType') Type
 
     // Expense Amount input
     div.form-floating.mb-3
-      input.form-control#ExpenseAmount(type="number", placeholder="Expense Amount" name='Amount' required)
+      input.form-control#ExpenseAmount(type="number" step="0.01" placeholder="Expense Amount" name='Amount' value=`${ transaction ? transaction.Amount : '' }` required)
       label(for="ExpenseAmount") Transaction Amount
 
     // Date input
     div.form-floating.mb-3
-      input.form-control#ExpenseDate(type="date", placeholder="Expense Date", aria-label="Expense Date" name='Date' required)
+      input.form-control#ExpenseDate(type="date", placeholder="Expense Date", aria-label="Expense Date" name='Date'  value=`${ transaction ? transaction.Date : '' }` required)
       label(for="ExpenseDate") Transaction Date
     
 
     // Expense Category select
     div.form-floating.mb-3
-      select#ExpenseCategory.form-select(aria-label="Floating label select example" name='CategoryID')
+      select#ExpenseCategory.form-select(aria-label="Floating label select example" name='CategoryID' value=`${ transaction ? transaction.CategoryID : '' }`  required)
         option(selected, disabled, hidden) Choose Expense Category
         each category in categories
           option(value=category.CategoryID) #{category.CategoryName}
@@ -44,8 +44,8 @@ block content
 
     // Expense Description textarea
     div.form-floating.mb-3.mt-2
-      textarea#ExpenseDescription.form-control(name="Description", placeholder="Expense Description")
+      textarea#ExpenseDescription.form-control(name="Description", placeholder="Expense Description" value=`${ transaction ? transaction.Description : '' }` required)
       label(for="Description") Expense Description
 
     // Edit Transaction button
-    button.btn.my-2.text-light(type="submit") Add Transaction
+    button.btn.my-2.text-light(type="submit") #{ transaction ? 'Edit Transaction' : 'Add Transaction' } 

@@ -4,6 +4,8 @@ const categoryModel = require('../models/categoryModel')
 
 const router = express.Router();
 
+
+// Reading transactions
 router.get('/', async (req, res, next) => {
   try {
     const transactions = await transactionModel.getTransactions();
@@ -14,8 +16,12 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ff272369ff658090b6538bd2fc9f396c3ed892e7
 
+// Creating transactions
 router.get('/create', async (req, res, next) => {
   const categories = await categoryModel.getCategories()
   //console.log(categories)
@@ -34,7 +40,33 @@ router.post('/create', async(req, res, next) => {
   }
 
   console.log(passingData)
+<<<<<<< HEAD
 
+=======
+  res.redirect('/transactions')
+})
+
+// Updating transactions
+router.get('/:id/update', async(req, res, next) => {
+  
+  const categories = await categoryModel.getCategories()
+  res.render('TransactionForm', {
+    title: `Updating Transaction`,
+    categories,
+
+  })
+})
+
+router.post('/:id/update', async(req, res, next) => {
+  
+  const categories = await categoryModel.getCategories()
+  res.redirect('/transactions')
+})
+
+// DELETING FROM A MODAL
+router.post('/', async(req, res, next) => {
+  console.log('use this id to delete in a query: ' + req.body['transaction_id'])
+>>>>>>> ff272369ff658090b6538bd2fc9f396c3ed892e7
   res.redirect('/transactions')
 })
 
