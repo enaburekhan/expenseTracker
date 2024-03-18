@@ -88,8 +88,8 @@ body {
 */
 
 a {
-  text-decoration: none;
-  color: #00b7ff;
+	text-decoration: none !important ;
+	color: #00B7FF;
 }
 
 .header {
@@ -147,7 +147,10 @@ a {
 
 .nav > a > div {
   display: flex;
+  flex-direction: row;
+
   align-items: center;
+
   border-bottom: 4px solid #ddd4ee;
   padding: 1vh 0;
 }
@@ -181,4 +184,8 @@ a {
 }
 
 */
+
+/****************************/
+
+
 
