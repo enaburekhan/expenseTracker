@@ -28,14 +28,7 @@ app.get('/', (req, res) => {
   res.send('Hello world!');
 });
 
-app.get('/EditExpenses', async (req, res, next) => {
-  try {
-    const categories = await getCategories();
-    res.render('editExpensesForm', { categories });
-  } catch (error) {
-    next(error);
-  }
-});
+
 
 app.use((err, req, res, next) => {
   res.locals.message = err.message;

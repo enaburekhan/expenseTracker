@@ -184,14 +184,6 @@ a {
 */
 
 /****************************/
-/**********Transaction form Style******************/
-.form-control:focus,
-.form-select:focus {
-  box-shadow: none;
-  border-color:   var(--Primary-color) !important; 
-}
-.btn{
-  background-color: var(--Primary-color) !important;
-}
+
 
 
