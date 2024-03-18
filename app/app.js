@@ -24,21 +24,20 @@ app.use('/users', userController);
 app.use('/categories', categoryController);
 app.use('/transactions', transactionController);
 
-app.get('/', (req, res) => {
-  res.send('Hello world!');
+app.get("/landing_page", (req, res) => {
+  res.render("landing_page");
 });
-
 
 
 app.use((err, req, res, next) => {
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.error = req.app.get("env") === "development" ? err : {};
   res.status(err.status || 500);
-  res.render('error');
+  res.render("error");
 });
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
-  console.log(`http://localhost:${port}`)
+  console.log(`http://localhost:${port}`);
 });
