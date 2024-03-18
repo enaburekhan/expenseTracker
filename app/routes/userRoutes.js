@@ -7,17 +7,17 @@ const User = require('../models/userModel');
 
 
 // Render the signup form
-router.get('/user/signup', (req, res) => {
+router.get('/signup', (req, res) => {
     res.render('signup');
   });
   
   // Render the login form
-  router.get('/user/login', (req, res) => {
+  router.get('/login', (req, res) => {
     res.render('login');
   });
 
 // Handle signup form submission  
-router.post('/user/signup', [
+router.post('/signup', [
    body('Email').isEmail().withMessage('Please enter a valid email').custom(async (value) => {
      const foundUser = await User.getUserByEmail(value);
      if(foundUser){
@@ -34,7 +34,7 @@ signup
 
 // Handle login form submission
 
-router.post('/user/login', [
+router.post('/login', [
   body('Email').isEmail().withMessage('Please enter a valid email'),
   body('Password').notEmpty().withMessage("Password field can't be empty")
 ], login)

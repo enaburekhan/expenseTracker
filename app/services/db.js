@@ -25,9 +25,9 @@ async function query(sql, params = []) {
   const filteredParams = params ? params.filter(param => param !== undefined) : [];
 
   // Execute the query with filtered parameters
-  const [rows, fields] = await pool.execute(sql, filteredParams);
+  const data = await pool.execute(sql, filteredParams);
 
-  return rows;
+  return data;
 }
 
 module.exports = {

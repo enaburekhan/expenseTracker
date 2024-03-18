@@ -15,7 +15,6 @@ app.set('view engine', 'pug');
 app.set('views', './app/views');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser())
-// app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors({
   origin: 'http://localhost:3000',
@@ -30,10 +29,6 @@ app.use('/transactions', transactionController);
 app.get("/landing_page", (req, res) => {
   res.render("landing_page");
 });
-
-// app.get("/signupandlogin", (req, res) => {
-//   res.render("signupandlogin");
-// });
 
 app.use((req, res, next) => {
   next(createError(404));
