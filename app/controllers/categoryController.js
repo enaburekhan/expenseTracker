@@ -12,4 +12,7 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+router.get('/create' , async (req, res, next) => {
+  res.render('Category_form', {title: 'Create a Category', });
+ } )
 module.exports = router;
