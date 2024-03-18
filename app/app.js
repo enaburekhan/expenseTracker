@@ -12,6 +12,8 @@ app.use(express.static("static"));
 app.set("view engine", "pug");
 app.set("views", "./app/views");
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.use("/users", userController);
 app.use("/categories", categoryController);
