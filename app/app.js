@@ -6,11 +6,8 @@ const categoryController = require('./controllers/categoryController');
 const transactionController = require('./controllers/transactionController');
 const { getCategories } = require('./models/categoryModel');
 const transactionModel = require('./models/transactionModel');
-//const morgan = require('morgan')
 
 const app = express();
-
-//app.use(morgan("tiny"))
 
 app.use(express.static('static'));
 app.set('view engine', 'pug');
