@@ -9,9 +9,9 @@ block content
 
     h2.title Create a Category
 
-    form(action="/categories", method="POST")
+    form(method="POST")
       div.form-floating.mb-3
-        input.form-control#categoryName(type="text", placeholder="Add Category" name="categoryName")
+        input.form-control#categoryName(type="text", placeholder="Add Category" name="categoryName" required value=`${category?category.CategoryName:''}`)
         label(for="categoryName")
-      button.btn.btn-primary(type="submit") Add category name
+      button.btn.btn-primary(type="submit") #{ category ? 'Update Category' : 'Add a Category' }
   
