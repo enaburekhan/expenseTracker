@@ -7,6 +7,8 @@ const categoryController = require("./controllers/categoryController");
 const transactionController = require("./controllers/transactionController");
 const signupandloginController = require("./controllers/signupandloginController");
 
+const transactionModel = require("./models/transactionModel")
+
 const app = express();
 
 app.use(express.static("static"));
