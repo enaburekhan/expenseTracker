@@ -8,6 +8,10 @@ WORKDIR /src
 # Install application dependencies
 COPY package*.json /src/
 
+# Install Bootstrap
+RUN npm install bootstrap
+
+
 # Ask npm to install the dependencies
 RUN npm install -g supervisor && npm install && npm install supervisor
 
