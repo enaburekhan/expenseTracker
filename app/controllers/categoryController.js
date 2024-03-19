@@ -1,5 +1,6 @@
 const express = require('express');
 const categoryModel = require('../models/categoryModel');
+const transactionModel = require("../models/transactionModel")
 
 const router = express.Router();
 
@@ -24,12 +25,18 @@ router.post('/create', async (req, res, next) => {
 
 // Updating a category
 router.get('/:id/update', async (req, res, next) => {
+  const category = await categoryModel.getSingleCategory(req.params.id)
+  
   res.render('Category_form', {
-    title: `Update Category: `,
+    title: `Update Category: ${category.CategoryName}`,
+    category,
   })
 })
 
 router.post('/:id/update', async (req, res, next) => {
+  const category = await categoryModel.getSingleCategory(req.params.id)
+  console.log(req.body)
+  
   res.redirect('/categories')
 })
 
