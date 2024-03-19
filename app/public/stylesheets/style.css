@@ -139,10 +139,17 @@ a {
 
 /*********************************/
 .nav {
+<<<<<<< HEAD
   display: grid !important;
   grid-template-columns: repeat(3, 15vw);
   justify-content: space-between;
   margin: 5vh 15vw;
+=======
+	display: grid !important;
+	grid-template-columns: repeat(3, 15vw);
+	justify-content: space-between;
+	margin: 5vh 15vw;
+>>>>>>> 1b80be475d5af12bb0b4cba3581d762174ef2b58
 }
 
 .nav > a > div {
@@ -184,8 +191,11 @@ a {
 }
 
 */
+<<<<<<< HEAD
 
 /****************************/
 
 
 
+=======
+>>>>>>> 1b80be475d5af12bb0b4cba3581d762174ef2b58
