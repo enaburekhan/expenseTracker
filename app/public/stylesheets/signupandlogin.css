@@ -137,10 +137,13 @@
     font-size: var(--B2-medium-body-font-size);
     font-weight: var(--B2-medium-body-weight);
     line-height: var(--B2-medium-body-line-height);
-    padding: 0.5rem 1.2rem;
+    padding: 1rem 1.2rem;
     border: none;
     outline: none;
     border-radius: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .login-container {
@@ -335,10 +338,14 @@
     font-size: var(--B2-medium-body-font-size);
     font-weight: var(--B2-medium-body-weight);
     line-height: var(--B2-medium-body-line-height);
-    padding: 0.5rem 1.2rem;
+    padding: 1rem 1.2rem;
     border: none;
     outline: none;
     border-radius: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
   }
 
   .login-container {
