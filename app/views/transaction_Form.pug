@@ -6,8 +6,6 @@ block style
   link(rel='stylesheet', href='/stylesheets/style.css')
   link(rel='stylesheet', href='/stylesheets/transactionstyle.css')
   script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer)
-  title Edit/Delete Expense Form
-  
 
 block content
   
@@ -33,7 +31,6 @@ block content
       input.form-control#ExpenseDate(type="date", placeholder="Expense Date", aria-label="Expense Date", name="Date", value=transaction?transaction.Date.toISOString().substring(0, 10):"")
       label(for="ExpenseDate") Transaction Date
     
-
     // Expense Category select
     div.form-floating.mb-3
       select#ExpenseCategory.form-select(aria-label="Floating label select example" name='CategoryID' required)
@@ -45,8 +42,9 @@ block content
     // Expense Description textarea
     div.form-floating.mb-3.mt-2
       textarea#ExpenseDescription.form-control(name="Description" placeholder="Expense Description" required)
-        | #{transaction ? transaction.Description : ''}
+        | #{ transaction ? transaction.Description : '' }
       label(for="Description") Expense Description
 
     // Edit Transaction button
-    button.btn.my-2.text-light(type="submit") #{ transaction ? 'Edit Transaction' : 'Add Transaction' } 
+    button.btn.my-2.text-light(type="submit") Submit
+  
