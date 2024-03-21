@@ -79,15 +79,13 @@ h1 {
 
 ul {
     width: 50vw;
+    margin-bottom: 20vh;
 
     display: flex;
     flex-direction: column;
 
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
-
-
-    
 
     -webkit-box-shadow: -1px 24px 45px 8px rgba(0,0,0,0.18);
     -moz-box-shadow: -1px 24px 45px 8px rgba(0,0,0,0.18);
