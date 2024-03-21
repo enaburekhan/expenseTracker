@@ -10,6 +10,17 @@ const getCategories = async () => {
   }
 };
 
+async function getSingleCategory(id) {
+  let sql = `SELECT * FROM Category WHERE CategoryID=?`
+  let category = await db.pool.query(sql, [id])
+  category = category[0][0]
+  //console.log(category)
+
+  return category
+}
+
 module.exports = {
   getCategories,
+  getSingleCategory,
+  
 };
