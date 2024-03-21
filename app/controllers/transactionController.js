@@ -41,16 +41,20 @@ router.post('/create', async(req, res, next) => {
 
 // Updating transactions
 router.get('/:id/update', async(req, res, next) => {
+  transaction = await transactionModel.getSingleTransaction(req.params.id)
   
   const categories = await categoryModel.getCategories()
   res.render('transaction_Form', {
-    title: `Updating Transaction`,
+    title: `Update Transaction: ${transaction.Description}`,
     categories,
+    transaction,
 
   })
 })
 
 router.post('/:id/update', async(req, res, next) => {
+  transaction = await transactionModel.getSingleTransaction(req.params.id)
+  console.log(req.body)
   res.redirect('/transactions')
 })
 
