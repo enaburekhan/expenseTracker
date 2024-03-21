@@ -23,16 +23,16 @@ router.get('/create', async (req, res, next) => {
   //console.log(categories)
   res.render('transaction_Form', {
     title: "Add a Transaction",
-    categories: categories,
+    categories,
+    transaction: undefined,
   })
 })
 
 router.post('/create', async(req, res, next) => {
   //console.log(req.body)
   let passingData = {
-    TransactionID: Math.round(Math.random()*200),
     ...req.body,
-    UserID: 'dude',
+    UserID: Math.round(Math.random()*4),
   }
 
   console.log(passingData)
