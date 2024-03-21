@@ -12,13 +12,19 @@ const getTransactions = async () => {
 const calculateTotalBalance = (transactions) => {
   let totalBalance = 0;
   for (const transaction of transactions) {
-    if (transaction.type === 'income') {
+    totalBalance += transaction.Amount * ( transaction.Type == 'income' ? 1 : -1 )
+    
+    /*
+    if (transaction.Type == 'income') {
       totalBalance += transaction.Amount;
     } else {
       totalBalance -= transaction.Amount;
     }
+    */
+    
   }
   return totalBalance;
+
 };
 
 async function getSingleTransaction(id) {
