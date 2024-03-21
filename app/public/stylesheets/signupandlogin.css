@@ -55,7 +55,7 @@
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
     color: var(--Neutral400-text-main);
-    font-size: 24px;
+    font-size: 16px;
   }
 
   body {
@@ -80,7 +80,6 @@
     display: flex;
     flex-direction: column;
     row-gap: 4rem;
-    overflow: scroll;
     /* overflow-y: hidden; */
     height: 35rem;
     width: 90%;
@@ -137,17 +136,19 @@
     font-size: var(--B2-medium-body-font-size);
     font-weight: var(--B2-medium-body-weight);
     line-height: var(--B2-medium-body-line-height);
-    padding: 0.5rem 1.2rem;
+    padding: 1rem 1.2rem;
     border: none;
     outline: none;
     border-radius: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .login-container {
     display: flex;
     flex-direction: column;
     row-gap: 4rem;
-    overflow: scroll;
     /* overflow-y: hidden; */
     height: 36rem;
     width: 90%;
@@ -253,7 +254,7 @@
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
     color: var(--Neutral400-text-main);
-    font-size: 16px;
+    font-size: 12px;
   }
 
   body {
@@ -278,7 +279,6 @@
     display: flex;
     flex-direction: column;
     row-gap: 4rem;
-    overflow: scroll;
     /* overflow-y: hidden; */
     height: 30rem;
     width: 80%;
@@ -335,17 +335,20 @@
     font-size: var(--B2-medium-body-font-size);
     font-weight: var(--B2-medium-body-weight);
     line-height: var(--B2-medium-body-line-height);
-    padding: 0.5rem 1.2rem;
+    padding: 1rem 1.2rem;
     border: none;
     outline: none;
     border-radius: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
   }
 
   .login-container {
     display: flex;
     flex-direction: column;
     row-gap: 4rem;
-    overflow: scroll;
     /* overflow-y: hidden; */
     height: 30rem;
     width: 80%;
