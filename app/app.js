@@ -8,6 +8,8 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
+const transactionModel = require("./models/transactionModel")
+
 const app = express();
 
 app.use(express.static('static'));
@@ -29,6 +31,21 @@ app.use('/transactions', transactionController);
 app.get("/landing_page", (req, res) => {
   res.render("landing_page");
 });
+
+app.get('/', (req, res) => {
+  res.redirect('/landing_page')
+});
+
+app.get('/home', async (req, res, next)=> {
+  const transactions = await transactionModel.getTransactions();
+  const totalBalance = transactionModel.calculateTotalBalance(transactions);
+
+  res.render('HomePage', {
+    title: 'Home',
+    transactions,
+    totalBalance,
+  })
+})
 
 app.use((req, res, next) => {
   next(createError(404));
