@@ -1,9 +1,8 @@
--- MySQL code to create the structure of the Expense Tracker database
 -- Create User table
 CREATE TABLE User (
   UserID INTEGER PRIMARY KEY AUTO_INCREMENT,
   Username VARCHAR(50) UNIQUE,
-  Password VARCHAR(100),
+  Password VARCHAR(100),  -- Updated for storing hashed passwords
   Email VARCHAR(100) UNIQUE,
   FirstName VARCHAR(50),
   LastName VARCHAR(50),
