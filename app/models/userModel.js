@@ -1,18 +1,17 @@
 const db = require('../services/db');
 
 class User {
-  static async getUser(Email, Password) {
-    const [rows] = await db.query('SELECT * FROM User WHERE Email = ?', [Email]);
+  static async getUserByEmailAndPassword(email, password) {
+    const [rows] = await db.query('SELECT * FROM User WHERE Email = ?', [email]);
     if(rows.length === 0){
       return null // User not found
     }
-    return {Email: rows.Email, hashedPassword: rows.Password}; // Assuming email is unique and returns only one user
+    return rows.map(({ Email, Password}) => ({ Email, hashedPassword: Password}))[0]
   }
 
   static async createUser(userId, email, password, username, firstName) {
     try{
     const result = await db.query('INSERT INTO User (UserID, Email, Password, Username, FirstName) VALUES (?, ?, ?, ?, ?)', [userId, email, password, username, firstName])
-    console.log('result', result);
     // Check if the result is an array with atleast one element
     if(Array.isArray(result) && result.length > 0){
       const insertId = result[0].insertId

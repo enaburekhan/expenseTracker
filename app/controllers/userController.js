@@ -12,7 +12,6 @@ exports.signup = async (req, res, next) => {
     const salt = await bcrypt.genSalt(12)
 
     // Hash password with the generated salt
-    console.log('password', req.body);
     const hashedPassword = bcrypt.hashSync(req.body.Password, salt)
     // Create user
     const UserID = uuidv4();
@@ -38,9 +37,10 @@ exports.login = async (req, res, next) => {
     if(!errors.isEmpty()){
       return res.status(422).json({ errors: errors.array() })
     }
-
-    // Fetch user by email
-    const user = await User.getUser(req.body.Email, req.body.Password);
+   
+    
+    // Fetch user by email and password
+    const user = await User.getUserByEmailAndPassword(req.body.Email, req.body.Password);
 
     // Check if the user is null or undefined
     if(!user || user === undefined){
@@ -52,7 +52,7 @@ exports.login = async (req, res, next) => {
       return res.status(401).json({ errors: 'Password is required'})
     }
 
-    // Check password
+       // Check password
     const isPasswordValid = await bcrypt.compare(req.body.Password, user.hashedPassword);
     if(!isPasswordValid){
       return res.status(401).json({ error: 'Invalid credentials'})
